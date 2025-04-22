@@ -5,3 +5,15 @@
 .App {
   text-align: center;
 }
+.table-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.aggregation-result {
+  margin-top: 5px;
+  font-weight: bold;
+}
