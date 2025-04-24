@@ -17,3 +17,12 @@ export const parseFormula = (formula: string, columns: { columnName: string }[])
 
   return { parsedFormula, usedColumns };
 };
+
+export const getMaxRowCount = (tableData: Record<string, any>): number => {
+  const rowIndices = Object.keys(tableData).map(key => {
+    const parts = key.split('-');
+    return parseInt(parts[1], 10); 
+  });
+
+  return rowIndices.length > 0 ? Math.max(...rowIndices) + 1 : 0;
+};

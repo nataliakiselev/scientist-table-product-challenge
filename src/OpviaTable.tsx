@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Dialog, InputGroup, Classes, HTMLSelect } from '@blueprintjs/core';
 import { Cell, Column, Table2 } from '@blueprintjs/table';
 import { dummyTableData } from './data/dummyData';
-import { parseFormula } from './utils/formulaUtils';
+import { parseFormula, getMaxRowCount } from './utils/formulaUtils';
 import './App.css';
 
 const baseColumns = [
@@ -23,7 +23,7 @@ const OpviaTable: React.FC = () => {
   const [aggregationColumn, setAggregationColumn] = useState('');
   const [aggregationResult, setAggregationResult] = useState<number | null>(null);
 
-  const numRows = Math.max(...Object.keys(tableData).map(key => parseInt(key.split('-')[1], 10))) + 1;
+  const numRows = getMaxRowCount(tableData);
 
   const cellRenderer = (rowIndex: number, columnIndex: number) => {
     const value = tableData[`${columnIndex}-${rowIndex}`] ?? '';
@@ -97,7 +97,7 @@ const OpviaTable: React.FC = () => {
           Add Calculation Column
         </Button>
         <HTMLSelect
-          options={[{ label: 'Select Column', value: '' }, ...columns.map(c => ({ label: c.columnName, value: c.columnId }))]}
+          options={[{ label: 'Select Column', value: '' }, ...columns.filter(c => c.columnType !== 'time').map(c => ({ label: c.columnName, value: c.columnId }))]}
           onChange={(e) => setAggregationColumn(e.currentTarget.value)}
         />
         <HTMLSelect
