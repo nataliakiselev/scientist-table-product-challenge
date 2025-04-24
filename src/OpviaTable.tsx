@@ -111,7 +111,7 @@ const OpviaTable: React.FC = () => {
           <div className="aggregation-result">{aggregation} Value: {aggregationResult.toFixed(2)}</div>
         )}
       </div>
-      <Table2 defaultRowHeight={35} numRows={numRows}>
+      <Table2 defaultRowHeight={35} numRows={numRows} cellRendererDependencies={[tableData]}> 
         {cols}
       </Table2>
 
