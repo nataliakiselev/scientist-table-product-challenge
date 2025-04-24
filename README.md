@@ -4,11 +4,8 @@
 - The table shows preloaded example data (Time, Cell Density, Volume).
 - To add a **calculation column**:
   1. Click **"Add Calculation Column"**.
-  2. Enter a formula using column names exactly as shown (case and spacing are ignored).
-     Examples:
-     - `Cell Density * Volume`
-     - `celldensity*volume`
-     - `CellDensity * Volume`
+  2. Enter a formula using column names:
+     - `Cell Density * Volume` 
   3. A new column will be added automatically with computed values.
 - To perform a **column aggregation**:
   1. Select the column you want to aggregate from the dropdown.
@@ -16,7 +13,6 @@
   3. Click **"Calculate"** to view the result.
 
 **Notes:**
-- You can freely use `Time`, `Cell Density`, and `Volume` in formulas.
 - Formulas are **case-insensitive**.
 - Use standard operators: `+`, `-`, `*`, `/`.
 
@@ -54,7 +50,7 @@
    - Allow users to edit table data manually via inline editing, using Blueprint's `EditableCell2` component for a more dynamic experience.
 
 7. **Responsive Layout Enhancements (if needed based on user feedback)**
-   - Improve layout responsiveness for better use on smaller screens and tablets, depending on whether mobile use cases arise from real-world user testing.
+   - Improve layout responsiveness for better use on smaller screens and tablets, if needed.
 
 ---
 
@@ -73,6 +69,4 @@ Here, `prev(Cell Density)` means "value of Cell Density from the previous row".
 - When evaluating each row, access previous or next row values safely.
 - Handle edge cases like the first row (where `prev()` is undefined) gracefully, by showing `null` or leaving it empty.
 - Allow for more complex future formulas like moving averages or rolling sums.
-
-This feature would enable scientists to compute growth rates, derivative changes over time, and other important trends directly inside the table.
 */
